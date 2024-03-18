@@ -16,6 +16,9 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer
 
 #region services
 builder.Services.AddScoped<IActorsService, ActorsService>();
+builder.Services.AddScoped<IPoroducersService, ProducersService>();
+builder.Services.AddScoped<IMoviesService, MoviesService>();
+builder.Services.AddScoped<ICinemasService, CinemasService>();
 #endregion
 
 var app = builder.Build();

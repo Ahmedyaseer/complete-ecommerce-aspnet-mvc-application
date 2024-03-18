@@ -1,43 +1,45 @@
-﻿@model eTickets.Models.Actor
+﻿@model eTickets.Models.Producer
 
 @{
-    ViewData["Title"] = "Create a new Actor";
+    ViewData["Title"] = "Delete Producer";
 }
 
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-        <h1>Add a New Actor</h1>
+        <h1>Delete confirmation for @Model.FullName</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              
                     <div class="form-group text-center">
-                        <img id="ProfilePicturePreview" class="border-info rounded-circle" style="max-width:150px" />
+                        <img class="border-info rounded-circle" style="max-width:150px" id="ProfilePicturePreview" />
                     </div>
 
             <div class="form-group">
                 <label asp-for="ProfilePictureURL" class="control-label"></label>
-                <input asp-for="ProfilePictureURL" class="form-control" />
+                <input asp-for="ProfilePictureURL" class="form-control" readonly />
                 <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FullName" class="control-label"></label>
-                <input asp-for="FullName" class="form-control" />
+                <input asp-for="FullName" class="form-control" readonly />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Bio" class="control-label"></label>
-                <input asp-for="Bio" class="form-control" />
+                <input asp-for="Bio" class="form-control" readonly />
                 <span asp-validation-for="Bio" class="text-danger"></span>
             </div>
             <div class="form-group align-content-around">
-                <a asp-action="Index" class="btn btn-outline-secondary float-left">Show All</a>
-                <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                <form  asp-action="Delete" method="post">
+                    <input asp-route="id" type="hidden" />
+                    <input type="submit" value="Confirm" class="btn btn-outline-danger float-start" />
+
+                </form>
+                <a asp-action="Index" class="btn btn-outline-secondary float-end">Show All</a>
             </div>
-                                </form>
 
             </div>
         </div>
@@ -53,9 +55,6 @@ $(document).ready(function() {
             output.src = $("#ProfilePictureURL").val();
     
 })
-        $("#ProfilePictureURL").on("keyup",function(){
-            var output = document.getElementById("ProfilePicturePreview");
-            output.src = $(this).val();
-        })
+      
     </script>
 }

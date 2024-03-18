@@ -1,18 +1,18 @@
-﻿@model eTickets.Models.Actor
+﻿@model eTickets.Models.Producer
 
 @{
-    ViewData["Title"] = "Create a new Actor";
+    ViewData["Title"] = "Update Producer";
 }
 
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-        <h1>Add a New Actor</h1>
+        <h1>Update Producer</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create" method="post">
+                <form asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group text-center">
                         <img id="ProfilePicturePreview" class="border-info rounded-circle" style="max-width:150px" />
@@ -35,9 +35,9 @@
             </div>
             <div class="form-group align-content-around">
                 <a asp-action="Index" class="btn btn-outline-secondary float-left">Show All</a>
-                <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                <input type="submit" value="Update" class="btn btn-outline-success float-right" />
             </div>
-                                </form>
+            </form>
 
             </div>
         </div>
