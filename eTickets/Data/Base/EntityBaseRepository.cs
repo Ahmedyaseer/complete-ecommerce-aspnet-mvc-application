@@ -40,7 +40,14 @@ namespace eTickets.Data.Base
             _context.Remove(entity);
             await _context.SaveChangesAsync();
         }
-
+        /* <Summery>
+         * can get set of model with include other models 
+         * the function take an expression 
+         * this expression impelement function takes the model T and other models can include (array of object) named includeProperties
+         * step 1 query = get the model
+         * step 2 add on the query the other models using Aggregate 
+         * retuen the models tolist
+         */
         public async Task<IEnumerable<T>> GetAllIncludeAsync(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query = _context.Set<T>();
